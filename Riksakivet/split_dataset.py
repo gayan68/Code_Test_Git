@@ -49,4 +49,4 @@ for folder in folders:
     # val_dataset.save_to_disk(val_dir)
 
     os.makedirs(test_dir, exist_ok=True)
-    full_dataset.save_to_disk(val_dir)
+    full_dataset.save_to_disk(test_dir)
