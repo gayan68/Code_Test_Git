@@ -10,7 +10,9 @@ from datasets import load_dataset
 
 # ds = load_dataset("Riksarkivet/frihetstidens_utskottshandlingar_lines")
 
-ds = load_dataset("Riksarkivet/carl_fredrik_pahlmans_resejournaler_lines")
+# ds = load_dataset("Riksarkivet/carl_fredrik_pahlmans_resejournaler_lines")
+
+ds = load_dataset("Riksarkivet/trolldomskommissionen_lines")
 
 # from datasets import load_dataset
 # ds = load_dataset("Riksarkivet/jonkopings_radhusratt_och_magistrat_lines")
