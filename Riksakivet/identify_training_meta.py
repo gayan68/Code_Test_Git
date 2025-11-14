@@ -5,16 +5,18 @@ from datasets import load_dataset
 import os
 
 
-folders =["svea_hovratt_lines",
-          "krigshovrattens_dombocker_lines",
-            "bergskollegium_relationer_och_skrivelser_lines",
-            "frihetstidens_utskottshandlingar_lines",
-            "carl_fredrik_pahlmans_resejournaler_lines",
-            "trolldomskommissionen_lines",
-            "gota_hovratt_lines",
-            "bergmastaren_i_nora_htr_lines",
-            "alvsborgs_losen_lines"
-]
+# folders =["svea_hovratt_lines",
+#           "krigshovrattens_dombocker_lines",
+#             "bergskollegium_relationer_och_skrivelser_lines",
+#             "frihetstidens_utskottshandlingar_lines",
+#             "carl_fredrik_pahlmans_resejournaler_lines",
+#             "trolldomskommissionen_lines",
+#             "gota_hovratt_lines",
+#             "bergmastaren_i_nora_htr_lines",
+#             "alvsborgs_losen_lines"
+# ]
+
+folders =["eval_htr_out_of_domain_lines"]
 
 for folder in folders:
     for split in ['train', 'val']:
@@ -22,4 +24,3 @@ for folder in folders:
         ds = load_from_disk(ds_path)
         print(f"Dataset: {folder} - Split: {split}")
         print(f"Number of examples: {len(ds)}")
-        
