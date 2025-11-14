@@ -1,7 +1,7 @@
 # this code is to identify characterset, max_img_line width, and max characters length 
 # in training validation and text datasets.
 
-from datasets import load_dataset
+from datasets import load_dataset, load_from_disk   
 import os
 
 
