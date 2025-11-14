@@ -13,10 +13,10 @@ items =[{"svea_hovratt_lines": ['train', 'val']},
             {"trolldomskommissionen_lines": ['train', 'val']},
             {"gota_hovratt_lines": ['train', 'val']},
             {"bergmastaren_i_nora_htr_lines": ['train', 'val']},
-            {"alvsborgs_losen_lines": ['train', 'val']},
-            {"eval_htr_out_of_domain_lines": ['test']}
+            {"alvsborgs_losen_lines": ['train', 'val']}
 ]
 
+#            {"eval_htr_out_of_domain_lines": ['test']}
 # items =[
 #             {"eval_htr_out_of_domain_lines": ['test']}
 # ]
