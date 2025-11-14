@@ -51,7 +51,7 @@ print(f"Unique characters ({len(unique_characters)}): {''.join(sorted(unique_cha
 print(f"Max image line width: {max_img_width}") 
 print(f"Max transcription length: {max_text_length}")
 
-save_path = "/home/x_gapat/PROJECTS/DATASETS/Riksarkivet/identify_training_meta.txt"
+save_path = "/home/x_gapat/PROJECTS/DATASETS/Riksarkivet/identify_training_meta_trval.txt"
 with open(save_path, 'w', encoding='utf-8') as f:
     f.write(f"Unique characters ({len(unique_characters)}): {''.join(sorted(unique_characters))}\n")
     f.write(f"Max image line width: {max_img_width}\n")
@@ -62,7 +62,7 @@ print(f"Training meta data saved to {save_path}")
 # Write unique characters to a SEPARATE FILE
 # ----------------------------------------
 
-unique_char_path = save_path.replace(".txt", "_unique_chars.txt")
+unique_char_path = save_path.replace(".txt", "_unique_chars_trval.txt")
 
 with open(unique_char_path, 'w', encoding='utf-8') as f:
     for ch in sorted(unique_characters):
