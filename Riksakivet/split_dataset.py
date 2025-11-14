@@ -1,4 +1,7 @@
 from datasets import load_dataset
+import os
+
+
 folder ="svea_hovratt_line"
 
 dataset  = load_dataset(
@@ -20,5 +23,11 @@ val_dataset = split['test']
 print(f"Train examples: {len(train_dataset)}")
 print(f"Validation examples: {len(val_dataset)}")
 
-train_dataset.save_to_disk(f"/home/x_gapat/PROJECTS/DATASETS/Riksarkivet/train/{folder}")
-val_dataset.save_to_disk("f/home/x_gapat/PROJECTS/DATASETS/Riksarkivet/val/{folder}")
+train_dir = f"/home/x_gapat/PROJECTS/DATASETS/Riksarkivet/train/{folder}"
+val_dir = f"/home/x_gapat/PROJECTS/DATASETS/Riksarkivet/val/{folder}"
+
+os.makedirs(train_dir, exist_ok=True)
+os.makedirs(val_dir, exist_ok=True)
+
+train_dataset.save_to_disk(train_dir)
+val_dataset.save_to_disk(val_dir)
