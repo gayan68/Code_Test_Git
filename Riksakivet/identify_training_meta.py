@@ -58,3 +58,14 @@ with open(save_path, 'w', encoding='utf-8') as f:
     f.write(f"Max transcription length: {max_text_length}\n")   
 print(f"Training meta data saved to {save_path}")
 
+# ----------------------------------------
+# Write unique characters to a SEPARATE FILE
+# ----------------------------------------
+
+unique_char_path = save_path.replace(".txt", "_unique_chars.txt")
+
+with open(unique_char_path, 'w', encoding='utf-8') as f:
+    for ch in sorted(unique_characters):
+        f.write(ch + "\n")
+
+print(f"Unique characters saved to {unique_char_path}")
