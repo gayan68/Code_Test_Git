@@ -5,22 +5,56 @@ from datasets import load_dataset
 import os
 
 
-# folders =["svea_hovratt_lines",
-#           "krigshovrattens_dombocker_lines",
-#             "bergskollegium_relationer_och_skrivelser_lines",
-#             "frihetstidens_utskottshandlingar_lines",
-#             "carl_fredrik_pahlmans_resejournaler_lines",
-#             "trolldomskommissionen_lines",
-#             "gota_hovratt_lines",
-#             "bergmastaren_i_nora_htr_lines",
-#             "alvsborgs_losen_lines"
-# ]
+items =[{"svea_hovratt_lines", ['train', 'val']},
+          {"krigshovrattens_dombocker_lines", ['train', 'val']},
+            {"bergskollegium_relationer_och_skrivelser_lines", ['train', 'val']},
+            {"frihetstidens_utskottshandlingar_lines", ['train', 'val']},
+            {"carl_fredrik_pahlmans_resejournaler_lines", ['train', 'val']},
+            {"trolldomskommissionen_lines", ['train', 'val']},
+            {"gota_hovratt_lines", ['train', 'val']},
+            {"bergmastaren_i_nora_htr_lines", ['train', 'val']},
+            {"alvsborgs_losen_lines", ['train', 'val']},
+            {"eval_htr_out_of_domain_lines", ['test']}
+]
 
-folders =["eval_htr_out_of_domain_lines"]
+items =[
+            {"eval_htr_out_of_domain_lines", ['test']}
+]
 
-for folder in folders:
-    for split in ['train', 'val']:
-        ds_path = f"/home/x_gapat/PROJECTS/DATASETS/Riksarkivet/{split}/{folder}"
-        ds = load_from_disk(ds_path)
-        print(f"Dataset: {folder} - Split: {split}")
-        print(f"Number of examples: {len(ds)}")
+
+unique_characters = set()
+max_img_width = 0
+max_text_length = 0
+
+for item in items:
+    for folder_name, splits in item.items():
+        for split in splits:
+            ds_path = f"/home/x_gapat/PROJECTS/DATASETS/Riksarkivet/{split}/{folder_name}"
+            ds = load_from_disk(ds_path)
+            print(f"Dataset: {folder_name} - Split: {split}")
+            print(f"Number of examples: {len(ds)}")
+
+            for item in ds:
+                w, h = item["image"].size
+                transcription = item["transcription"]
+
+                if max_img_width < w:
+                    max_img_width = w
+                
+                if max_text_length < len(transcription):
+                    max_text_length = len(transcription)
+
+                unique_characters.update(set(transcription))
+
+print("===================================")
+print(f"Unique characters ({len(unique_characters)}): {''.join(sorted(unique_characters))}")
+print(f"Max image line width: {max_img_width}") 
+print(f"Max transcription length: {max_text_length}")
+
+save_path = "/home/x_gapat/PROJECTS/DATASETS/Riksarkivet/identify_training_meta.txt"
+with open(save_path, 'w', encoding='utf-8') as f:
+    f.write(f"Unique characters ({len(unique_characters)}): {''.join(sorted(unique_characters))}\n")
+    f.write(f"Max image line width: {max_img_width}\n")
+    f.write(f"Max transcription length: {max_text_length}\n")   
+print(f"Training meta data saved to {save_path}")
+
