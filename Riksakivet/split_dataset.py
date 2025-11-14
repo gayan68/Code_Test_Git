@@ -1,7 +1,8 @@
 from datasets import load_dataset
+folder ="svea_hovratt_line"
 
 dataset  = load_dataset(
-    "Riksarkivet/jonkopings_radhusratt_och_magistrat_lines",
+    f"Riksarkivet/{folder}",
     cache_dir="/home/x_gapat/PROJECTS/dataset_cache"
 )
 
@@ -19,5 +20,5 @@ val_dataset = split['test']
 print(f"Train examples: {len(train_dataset)}")
 print(f"Validation examples: {len(val_dataset)}")
 
-train_dataset.save_to_disk("/home/x_gapat/PROJECTS/DATASETS/Riksarkivet/train")
-val_dataset.save_to_disk("/home/x_gapat/PROJECTS/DATASETS/Riksarkivet/val")
+train_dataset.save_to_disk(f"/home/x_gapat/PROJECTS/DATASETS/Riksarkivet/train/{folder}")
+val_dataset.save_to_disk("f/home/x_gapat/PROJECTS/DATASETS/Riksarkivet/val/{folder}")
