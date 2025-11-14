@@ -5,20 +5,20 @@ from datasets import load_dataset
 import os
 
 
-items =[{"svea_hovratt_lines", ['train', 'val']},
-          {"krigshovrattens_dombocker_lines", ['train', 'val']},
-            {"bergskollegium_relationer_och_skrivelser_lines", ['train', 'val']},
-            {"frihetstidens_utskottshandlingar_lines", ['train', 'val']},
-            {"carl_fredrik_pahlmans_resejournaler_lines", ['train', 'val']},
-            {"trolldomskommissionen_lines", ['train', 'val']},
-            {"gota_hovratt_lines", ['train', 'val']},
-            {"bergmastaren_i_nora_htr_lines", ['train', 'val']},
-            {"alvsborgs_losen_lines", ['train', 'val']},
-            {"eval_htr_out_of_domain_lines", ['test']}
+items =[{"svea_hovratt_lines": ['train', 'val']},
+          {"krigshovrattens_dombocker_lines": ['train', 'val']},
+            {"bergskollegium_relationer_och_skrivelser_lines": ['train', 'val']},
+            {"frihetstidens_utskottshandlingar_lines": ['train', 'val']},
+            {"carl_fredrik_pahlmans_resejournaler_lines": ['train', 'val']},
+            {"trolldomskommissionen_lines": ['train', 'val']},
+            {"gota_hovratt_lines": ['train', 'val']},
+            {"bergmastaren_i_nora_htr_lines": ['train', 'val']},
+            {"alvsborgs_losen_lines": ['train', 'val']},
+            {"eval_htr_out_of_domain_lines": ['test']}
 ]
 
 items =[
-            {"eval_htr_out_of_domain_lines", ['test']}
+            {"eval_htr_out_of_domain_lines": ['test']}
 ]
 
 
