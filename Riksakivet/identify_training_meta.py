@@ -17,9 +17,9 @@ items =[{"svea_hovratt_lines": ['train', 'val']},
             {"eval_htr_out_of_domain_lines": ['test']}
 ]
 
-items =[
-            {"eval_htr_out_of_domain_lines": ['test']}
-]
+# items =[
+#             {"eval_htr_out_of_domain_lines": ['test']}
+# ]
 
 
 unique_characters = set()
