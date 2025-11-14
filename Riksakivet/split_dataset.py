@@ -2,7 +2,7 @@ from datasets import load_dataset
 import os
 
 
-folder ="svea_hovratt_line"
+folder ="svea_hovratt_lines"
 
 dataset  = load_dataset(
     f"Riksarkivet/{folder}",
