@@ -2,7 +2,7 @@ from datasets import load_dataset
 import os
 
 
-folder ="goteborgs_poliskammare_fore_1900_lines"
+folder ="svea_hovratt_lines"
 
 dataset  = load_dataset(
     f"Riksarkivet/{folder}",
