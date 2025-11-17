@@ -39,7 +39,7 @@ for folder in folders:
     print(f"Validation examples: {len(val_dataset)}")
 
     train_dir = f"/home/gayapath/PROJECTS/DATA_DGX2/Riksarkivet/train/{folder}"
-    val_dir = f"/home/gayapath/PROJECTS/DATA_DGX2//Riksarkivet/val/{folder}"
+    val_dir = f"/home/gayapath/PROJECTS/DATA_DGX2/Riksarkivet/val/{folder}"
     # test_dir = f"/home/x_gapat/PROJECTS/DATASETS/Riksarkivet/test/{folder}"
 
     os.makedirs(train_dir, exist_ok=True)
