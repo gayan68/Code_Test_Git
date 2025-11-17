@@ -13,7 +13,7 @@ import os
 #             "alvsborgs_losen_lines"
 # ]
 
-folders =["krigshovrattens_dombocker_lines"]
+folders =["jonkopings_radhusratt_och_magistrat_lines"]
 
 for folder in folders:
 
