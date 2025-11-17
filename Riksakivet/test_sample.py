@@ -2,10 +2,10 @@ from datasets import load_from_disk
 
 folder ="krigshovrattens_dombocker_lines"
 
-train_path = f"/home/gayapath/PROJECTS/DATA_DGX2/Riksarkivet/val/{folder}"
-train_ds = load_from_disk(train_path)
+path = f"/home/gayapath/PROJECTS/DATA_DGX2/Riksarkivet/val/{folder}"
+ds = load_from_disk(path)
 
-print(train_ds)
+print(ds)
 
 # print first sample
-print(train_ds[0])
+print(ds[0])
