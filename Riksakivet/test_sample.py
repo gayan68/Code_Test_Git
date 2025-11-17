@@ -1,8 +1,8 @@
 from datasets import load_from_disk
 
-folder ="svea_hovratt_lines"
+folder ="krigshovrattens_dombocker_lines"
 
-train_path = f"/home/x_gapat/PROJECTS/DATASETS/Riksarkivet/val/{folder}"
+train_path = f"/home/gayapath/PROJECTS/DATA_DGX2/Riksarkivet/val/{folder}"
 train_ds = load_from_disk(train_path)
 
 print(train_ds)
