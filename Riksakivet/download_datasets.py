@@ -1,6 +1,6 @@
 from datasets import load_dataset
 
-# ds = load_dataset("Riksarkivet/goteborgs_poliskammare_fore_1900_lines")
+ds = load_dataset("Riksarkivet/goteborgs_poliskammare_fore_1900_lines")
 
 # ds = load_dataset("Riksarkivet/svea_hovratt_lines")
 
@@ -20,7 +20,7 @@ from datasets import load_dataset
 
 # ds = load_dataset("Riksarkivet/alvsborgs_losen_lines")
 
-ds = load_dataset("Riksarkivet/jonkopings_radhusratt_och_magistrat_lines")
+# ds = load_dataset("Riksarkivet/jonkopings_radhusratt_och_magistrat_lines")
 
 ### Testing Set
 # ds = load_dataset("Riksarkivet/eval_htr_out_of_domain_lines")
