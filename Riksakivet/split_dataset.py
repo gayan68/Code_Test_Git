@@ -27,7 +27,7 @@ for folder in folders:
     print(dataset)
 
 
-    full_dataset = dataset['test']
+    full_dataset = dataset['train']
     print(f"Total examples in full dataset: {len(full_dataset)}")
     print(full_dataset[0])
 
