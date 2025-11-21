@@ -32,7 +32,7 @@ for folder in folders:
     print(full_dataset[0])
 
     # Use train_test_split with train_size=0.9
-    split = full_dataset.train_test_split(test_size=0.1, seed=42)
+    split = full_dataset.train_test_split(test_size=0.05, seed=42)
 
     train_dataset = split['train']
     val_dataset = split['test']
