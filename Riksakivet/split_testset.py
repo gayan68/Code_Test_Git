@@ -2,18 +2,13 @@ from datasets import load_dataset
 import os
 
 
-# folders =["svea_hovratt_lines",
-#           "krigshovrattens_dombocker_lines",
-#             "bergskollegium_relationer_och_skrivelser_lines",
-#             "frihetstidens_utskottshandlingar_lines",
-#             "carl_fredrik_pahlmans_resejournaler_lines",
-#             "trolldomskommissionen_lines",
-#             "gota_hovratt_lines",
-#             "bergmastaren_i_nora_htr_lines",
-#             "alvsborgs_losen_lines"
-# ]
+folders =[  "carl_fredrik_pahlmans_resejournaler_lines",
+            "gota_hovratt_lines",
+            "alvsborgs_losen_lines",
+            "jonkopings_radhusratt_och_magistrat_lines"
+]
 
-folders =["eval_htr_out_of_domain_lines"]
+# folders =["eval_htr_out_of_domain_lines"]
 
 root = "/home/gayapath/PROJECTS/DATA_DGX2"
 
@@ -32,7 +27,7 @@ for folder in folders:
     print(full_dataset[0])
 
     # Use train_test_split with train_size=0.9
-    split = full_dataset.train_test_split(test_size=0.05, seed=42)
+    # split = full_dataset.train_test_split(test_size=0.05, seed=42)
 
     # train_dataset = split['train']
     # val_dataset = split['test']
