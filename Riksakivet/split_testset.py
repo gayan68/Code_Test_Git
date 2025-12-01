@@ -2,15 +2,15 @@ from datasets import load_dataset
 import os
 
 
-folders =[  "svea_hovratt_lines",
-            "krigshovrattens_dombocker_lines",
-            "bergskollegium_relationer_och_skrivelser_lines",
-            "frihetstidens_utskottshandlingar_lines",
-            "trolldomskommissionen_lines",
-            "bergmastaren_i_nora_htr_lines"
-]
+# folders =[  "svea_hovratt_lines",
+#             "krigshovrattens_dombocker_lines",
+#             "bergskollegium_relationer_och_skrivelser_lines",
+#             "frihetstidens_utskottshandlingar_lines",
+#             "trolldomskommissionen_lines",
+#             "bergmastaren_i_nora_htr_lines"
+# ]
 
-# folders =["eval_htr_out_of_domain_lines"]
+folders =["krigshovrattens_dombocker_lines"]
 
 root = "/home/gayapath/PROJECTS/DATA_DGX2"
 
