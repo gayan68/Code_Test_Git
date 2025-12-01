@@ -42,7 +42,6 @@ for folder in folders:
 
     train_dir = f"{root}/Riksarkivet/train/{folder}"
     val_dir = f"{root}/Riksarkivet/val/{folder}"
-    # test_dir = f"{root}/Riksarkivet/test/{folder}"
 
     os.makedirs(train_dir, exist_ok=True)
     os.makedirs(val_dir, exist_ok=True)
@@ -50,5 +49,3 @@ for folder in folders:
     train_dataset.save_to_disk(train_dir)
     val_dataset.save_to_disk(val_dir)
 
-    # os.makedirs(test_dir, exist_ok=True)
-    # full_dataset.save_to_disk(test_dir)

@@ -2,10 +2,12 @@ from datasets import load_dataset
 import os
 
 
-folders =[  "carl_fredrik_pahlmans_resejournaler_lines",
-            "gota_hovratt_lines",
-            "alvsborgs_losen_lines",
-            "jonkopings_radhusratt_och_magistrat_lines"
+folders =[  "svea_hovratt_lines",
+            "krigshovrattens_dombocker_lines",
+            "bergskollegium_relationer_och_skrivelser_lines",
+            "frihetstidens_utskottshandlingar_lines",
+            "trolldomskommissionen_lines",
+            "bergmastaren_i_nora_htr_lines"
 ]
 
 # folders =["eval_htr_out_of_domain_lines"]
