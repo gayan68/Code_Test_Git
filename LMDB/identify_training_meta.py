@@ -3,11 +3,11 @@ import io
 from PIL import Image
 
 
-lmdb_root = f"../../DATASETS/READ_2016"
+lmdb_root = f"../../DATASETS/NorHandv3_mini"
 
-train_env = lmdb.open(f"{lmdb_root}/Training/lmdb", readonly=True, lock=False)
-val_env = lmdb.open(f"{lmdb_root}/Validation/lmdb", readonly=True, lock=False)
-test_env = lmdb.open(f"{lmdb_root}/Test/lmdb", readonly=True, lock=False)
+train_env = lmdb.open(f"{lmdb_root}/train/lmdb", readonly=True, lock=False)
+val_env = lmdb.open(f"{lmdb_root}/valid/lmdb", readonly=True, lock=False)
+test_env = lmdb.open(f"{lmdb_root}/test/lmdb", readonly=True, lock=False)
 
 unique_characters = set()
 max_img_width = 0
