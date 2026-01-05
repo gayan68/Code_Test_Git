@@ -6,7 +6,7 @@ from PIL import Image
 lmdb_root = f"../../DATASETS/NorHandv3_mini"
 
 train_env = lmdb.open(f"{lmdb_root}/train/lmdb", readonly=True, lock=False)
-val_env = lmdb.open(f"{lmdb_root}/valid/lmdb", readonly=True, lock=False)
+val_env = lmdb.open(f"{lmdb_root}/val/lmdb", readonly=True, lock=False)
 test_env = lmdb.open(f"{lmdb_root}/test/lmdb", readonly=True, lock=False)
 
 unique_characters = set()
