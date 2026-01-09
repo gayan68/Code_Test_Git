@@ -46,6 +46,7 @@ save_dir = f"{root}/DATASETS/NorHandv3_mini_v3"
 
 xml_root = f"{root}/{split}/gt"
 save_dir_txt = f"{save_dir}/{split}/line_splits/gt_text"
+print(save_dir_txt)
 
 os.makedirs(save_dir_txt, exist_ok=True)
 
@@ -54,6 +55,7 @@ file_names = get_file_names(xml_root)
 for page_id in file_names:
     extract_lines(page_id, xml_root, save_dir_txt)
 
+print("Train split done.")
 
 split = "val"
 root = f"{root}/DATASETS/NorHandv3_mini_v3"
@@ -61,6 +63,7 @@ save_dir = f"{root}/DATASETS/NorHandv3_mini_v3"
 
 xml_root = f"{root}/{split}/gt"
 save_dir_txt = f"{save_dir}/{split}/line_splits/gt_text"
+print(save_dir_txt)
 
 os.makedirs(save_dir_txt, exist_ok=True)
 
@@ -68,3 +71,4 @@ file_names = get_file_names(xml_root)
 
 for page_id in file_names:
     extract_lines(page_id, xml_root, save_dir_txt)
+print("Val split done.")
