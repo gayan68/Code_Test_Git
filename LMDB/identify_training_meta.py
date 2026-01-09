@@ -3,7 +3,7 @@ import io
 from PIL import Image
 
 
-lmdb_root = f"../../DATASETS/NorHandv3_mini"
+lmdb_root = f"../../DATASETS/NorHandv3_mini_v3"
 
 train_env = lmdb.open(f"{lmdb_root}/train/lmdb", readonly=True, lock=False)
 val_env = lmdb.open(f"{lmdb_root}/val/lmdb", readonly=True, lock=False)
