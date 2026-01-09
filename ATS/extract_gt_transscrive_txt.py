@@ -41,10 +41,10 @@ def get_file_names(xml_root):
 root = "/home/x_gapat/PROJECTS"
 
 split = "train"
-root = f"{root}/DATASETS/NorHandv3_mini_v3"
+data_dir = f"{root}/DATASETS/NorHandv3_mini_v3"
 save_dir = f"{root}/DATASETS/NorHandv3_mini_v3"
 
-xml_root = f"{root}/{split}/gt"
+xml_root = f"{data_dir}/{split}/gt"
 save_dir_txt = f"{save_dir}/{split}/line_splits/gt_text"
 print(save_dir_txt)
 
@@ -58,10 +58,7 @@ for page_id in file_names:
 print("Train split done.")
 
 split = "val"
-root = f"{root}/DATASETS/NorHandv3_mini_v3"
-save_dir = f"{root}/DATASETS/NorHandv3_mini_v3"
-
-xml_root = f"{root}/{split}/gt"
+xml_root = f"{data_dir}/{split}/gt"
 save_dir_txt = f"{save_dir}/{split}/line_splits/gt_text"
 print(save_dir_txt)
 
