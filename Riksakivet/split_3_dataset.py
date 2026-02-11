@@ -2,18 +2,15 @@ from datasets import load_dataset
 import os
 
 
-# folders =["svea_hovratt_lines",
-#           "krigshovrattens_dombocker_lines",
-#             "bergskollegium_relationer_och_skrivelser_lines",
-#             "frihetstidens_utskottshandlingar_lines",
-#             "carl_fredrik_pahlmans_resejournaler_lines",
-#             "trolldomskommissionen_lines",
-#             "gota_hovratt_lines",
-#             "bergmastaren_i_nora_htr_lines",
-#             "alvsborgs_losen_lines"
-# ]
+folders =["goteborgs_poliskammare_fore_1900_lines",
+          "bergskollegium_relationer_och_skrivelser_lines",
+            "svea_hovratt_lines",
+            "krigshovrattens_dombocker_lines",
+            "frihetstidens_utskottshandlingar_lines",
+            "trolldomskommissionen_lines"
+]
 
-folders =["jonkopings_radhusratt_och_magistrat_lines"]
+# folders =["jonkopings_radhusratt_och_magistrat_lines"]
 
 for folder in folders:
 
