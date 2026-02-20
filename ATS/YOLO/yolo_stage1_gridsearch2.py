@@ -1,4 +1,5 @@
 from ultralytics import YOLO
+from ultralytics.models.yolo.detect.val import DetectionValidator
 import numpy as np
 import argparse
 import os
@@ -28,50 +29,51 @@ data = args.data_yaml
 save_path = args.save_boxes_root
 model_name = weights.split('/')[-3]
 
-model = YOLO(weights, task="detect")  # or .pt you want to tune
-
-conf_grid = [x / 100 for x in range(30, 96, 5)]
-iou_grid  = [x / 100 for x in range(30, 96, 5)]
+model = YOLO(weights)  # or .pt you want to tune
 
 
-best_f1 = 0.0
-best_iou = 0.0
-best_conf = 0.0
-best_mAP_at_bestF1 = 0.0
+ious = [x / 100 for x in range(30, 96, 5)]
+confs = [x / 100 for x in range(30, 96, 5)]
 
-for conf in conf_grid:
-    for iou in iou_grid:
-        r = model.val(
+
+best_f1, best_iou, best_conf = 0, 0, 0
+for iou in ious:
+    for conf in confs:
+        
+        yolo_args = dict(
+            verbose=False,
+            model=weights,
             data=data,
-            split="val",
+            split="val",     # or "val"
+            imgsz=1280,
             conf=conf,
             iou=iou,
-            imgsz=1280,
-            batch=16,
-            workers=4, 
-            device=0,
-            plots=False,
-            save=False,
-            verbose=False,
+            max_det=2000,
+            device="cuda",
         )
+        
+        validator = DetectionValidator(args=yolo_args)
+        validator(model=model.model)          # run validation
+        metrics = validator.metrics
 
-        # r.box / r.seg exist depending on task; choose what you care about.
-        # For detection:
-        map = float(r.box.map)     # mAP@0.5:0.95
-        p     = float(r.box.p)
-        rec   = float(r.box.r)
-        f1    = (2 * p * rec / (p + rec)) if (p + rec) > 0 else 0.0
+        precision = metrics.box.p
+        recall = metrics.box.r
+        mAP = metrics.box.map
 
-        # Track best
+        f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) > 0 else 0.0
+
         if f1 > best_f1:
             best_f1 = f1
             best_iou = iou
             best_conf = conf
-            best_mAP_at_bestF1 = map
+            best_mAP_at_bestF1 = mAP
 
-        print(f"conf={conf:.2f}, iou={iou:.2f} => mAP={map:.4f}, F1={f1:.4f}")
+        print(f"conf={conf:.2f}, iou={iou:.2f} → F1={f1:.4f}, mAP={mAP:.4f}")
 
-print(f"Best F1: {best_f1}, Best IoU: {best_iou}, Best Conf: {best_conf}")
+        torch.cuda.empty_cache()
+
+print(f"Best: mAP: {best_mAP_at_bestF1}; F1: {best_f1}; IoU: {best_iou}; Conf: {best_conf}")
+
 
 with open(args.results_log, "a") as f:
     f.write(f"{args.target_dataset_name};{best_iou};{best_conf};{best_f1};{best_mAP_at_bestF1};{args.text}\n")
