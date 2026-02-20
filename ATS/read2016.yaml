@@ -1,0 +1,8 @@
+path: /home/gayapath/PROJECTS/DATASETS/YOLO_READ_2016
+
+train: images/train
+val: images/val
+test: images/test   # ← REQUIRED if you want split="test"
+
+nc: 1
+names: ["line"]
