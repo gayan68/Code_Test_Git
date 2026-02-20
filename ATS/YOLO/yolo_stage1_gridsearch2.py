@@ -57,6 +57,7 @@ def main():
         conf=conf,
         iou=iou,
         verbose=False,
+        task="detect",
     )
 
     # For nc=1, mp and mr correspond to that single class
