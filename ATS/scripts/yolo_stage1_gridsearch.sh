@@ -11,7 +11,7 @@ module load Mambaforge/23.3.1-1-hpc1-bdist
 mamba activate pytorch25
 
 # Parameters
-file=yolo_stage1_gridsearch.py
+file=yolo_stage1_gridsearch2.py
 
 # root=/home/x_gapat/PROJECTS
 root=/home/$USER/PROJECTS
