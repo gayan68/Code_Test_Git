@@ -1,4 +1,4 @@
-path: /home/gayapath/PROJECTS/DATASETS/YOLO_IAM
+path: /home/x_gapat/PROJECTS/DATASETS/YOLO_IAM
 
 train: images/train
 val: images/val

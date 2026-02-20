@@ -1,4 +1,4 @@
-path: /home/gayapath/PROJECTS/DATASETS/YOLO_NorHandV3_miniV3
+path: /home/x_gapat/PROJECTS/DATASETS/YOLO_NorHandV3_miniV3
 
 train: images/train
 val: images/val
