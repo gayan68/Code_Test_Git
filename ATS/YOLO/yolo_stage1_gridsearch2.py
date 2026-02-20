@@ -47,7 +47,7 @@ def main():
     iou = 0.50
     # ---------------
 
-    model = YOLO(weights)
+    model = YOLO(weights, task="detect")
 
     # Ultralytics returns a Results-like "metrics" object for validation
     metrics = model.val(
