@@ -30,51 +30,99 @@ save_path = args.save_boxes_root
 
 model = YOLO(weights)  # or .pt you want to tune
 
+# yolo_f1_single_class.py
+# Compute single-class F1 for YOLOv8 using Ultralytics evaluation results.
 
-ious = [x / 100 for x in range(30, 96, 5)]
-confs = [x / 100 for x in range(30, 96, 5)]
+
+def f1_from_pr(p: float, r: float) -> float:
+    return (2 * p * r / (p + r)) if (p + r) > 0 else 0.0
+
+def main():
+    # --- EDIT THESE ---
+    weights = args.model_path
+    data_yaml = args.data_yaml
+    split = "val"  # "val" or "test"
+    imgsz = 1280
+    conf = 0.25
+    iou = 0.50
+    # ---------------
+
+    model = YOLO(weights)
+
+    # Ultralytics returns a Results-like "metrics" object for validation
+    metrics = model.val(
+        data=data_yaml,
+        split=split,
+        imgsz=imgsz,
+        conf=conf,
+        iou=iou,
+        verbose=False,
+    )
+
+    # For nc=1, mp and mr correspond to that single class
+    p = float(metrics.box.mp)  # mean precision across classes
+    r = float(metrics.box.mr)  # mean recall across classes
+    f1 = f1_from_pr(p, r)
+
+    print("\n=== YOLOv8 Single-Class Metrics ===")
+    print(f"data:  {data_yaml}")
+    print(f"split: {split}")
+    print(f"weights: {weights}")
+    print(f"conf={conf}  iou={iou}  imgsz={imgsz}")
+    print("----------------------------------")
+    print(f"Precision: {p:.6f}")
+    print(f"Recall:    {r:.6f}")
+    print(f"F1:        {f1:.6f}\n")
+
+if __name__ == "__main__":
+    main()
 
 
-best_f1, best_iou, best_conf = 0, 0, 0
-for iou in ious:
-    for conf in confs:
+
+# ious = [x / 100 for x in range(30, 96, 5)]
+# confs = [x / 100 for x in range(30, 96, 5)]
+
+
+# best_f1, best_iou, best_conf = 0, 0, 0
+# for iou in ious:
+#     for conf in confs:
         
-        yolo_args = dict(
-            verbose=False,
-            model=weights,
-            data=data,
-            split="val",     # or "val"
-            imgsz=1280,
-            conf=conf,
-            iou=iou,
-            max_det=300,
-            device="cuda",
-            workers=4,
-            single_cls=True,             
-        )
+#         yolo_args = dict(
+#             verbose=False,
+#             model=weights,
+#             data=data,
+#             split="val",     # or "val"
+#             imgsz=1280,
+#             conf=conf,
+#             iou=iou,
+#             max_det=300,
+#             device="cuda",
+#             workers=4,
+#             single_cls=True,             
+#         )
         
-        validator = DetectionValidator(args=yolo_args)
-        validator(model=model.model)          # run validation
-        metrics = validator.metrics
+#         validator = DetectionValidator(args=yolo_args)
+#         validator(model=model.model)          # run validation
+#         metrics = validator.metrics
 
-        precision = float(np.asarray(metrics.box.p).mean())
-        recall    = float(np.asarray(metrics.box.r).mean())
-        mAP       = float(np.asarray(metrics.box.map).mean())
+#         precision = float(np.asarray(metrics.box.p).mean())
+#         recall    = float(np.asarray(metrics.box.r).mean())
+#         mAP       = float(np.asarray(metrics.box.map).mean())
 
-        f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) > 0 else 0.0
+#         f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) > 0 else 0.0
 
-        if f1 > best_f1:
-            best_f1 = f1
-            best_iou = iou
-            best_conf = conf
-            best_mAP_at_bestF1 = mAP
+#         if f1 > best_f1:
+#             best_f1 = f1
+#             best_iou = iou
+#             best_conf = conf
+#             best_mAP_at_bestF1 = mAP
 
-        print(f"conf={conf:.2f}, iou={iou:.2f} → F1={f1:.4f}, mAP={mAP:.4f}")
+#         print(f"conf={conf:.2f}, iou={iou:.2f} → F1={f1:.4f}, mAP={mAP:.4f}")
 
-        torch.cuda.empty_cache()
+#         torch.cuda.empty_cache()
 
-print(f"Best: mAP: {best_mAP_at_bestF1}; F1: {best_f1}; IoU: {best_iou}; Conf: {best_conf}")
+# print(f"Best: mAP: {best_mAP_at_bestF1}; F1: {best_f1}; IoU: {best_iou}; Conf: {best_conf}")
 
 
-with open(args.results_log, "a") as f:
-    f.write(f"{args.target_dataset_name};{best_iou};{best_conf};{best_f1};{best_mAP_at_bestF1};{args.text}\n")
+# with open(args.results_log, "a") as f:
+#     f.write(f"{args.target_dataset_name};{best_iou};{best_conf};{best_f1};{best_mAP_at_bestF1};{args.text}\n")
