@@ -49,16 +49,17 @@ for iou in ious:
             iou=iou,
             max_det=300,
             device="cuda",
-            workers=4           
+            workers=4,
+            single_cls=True,             
         )
         
         validator = DetectionValidator(args=yolo_args)
         validator(model=model.model)          # run validation
         metrics = validator.metrics
 
-        precision = float(metrics.box.p)
-        recall    = float(metrics.box.r)
-        mAP       = float(metrics.box.map)
+        precision = float(np.asarray(metrics.box.p).mean())
+        recall    = float(np.asarray(metrics.box.r).mean())
+        mAP       = float(np.asarray(metrics.box.map).mean())
 
         f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) > 0 else 0.0
 
