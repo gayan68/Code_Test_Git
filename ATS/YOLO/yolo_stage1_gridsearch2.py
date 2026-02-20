@@ -1,6 +1,8 @@
 from ultralytics import YOLO
 import numpy as np
 import argparse
+import os
+import torch
 
 print("CUDA_VISIBLE_DEVICES =", os.environ.get("CUDA_VISIBLE_DEVICES"))
 print("device_count =", torch.cuda.device_count())
