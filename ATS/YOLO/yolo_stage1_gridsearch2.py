@@ -48,6 +48,7 @@ for conf in conf_grid:
             iou=iou,
             imgsz=1280,
             batch=16,
+            workers=4, 
             device=0,
             plots=False,
             save=False,
