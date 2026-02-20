@@ -49,7 +49,7 @@ for iou in ious:
             iou=iou,
             max_det=300,
             device="cuda",
-            single_cls=True,            
+            workers=4           
         )
         
         validator = DetectionValidator(args=yolo_args)
