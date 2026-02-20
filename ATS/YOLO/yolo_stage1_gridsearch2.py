@@ -56,9 +56,9 @@ for iou in ious:
         validator(model=model.model)          # run validation
         metrics = validator.metrics
 
-        precision = metrics.box.p
-        recall = metrics.box.r
-        mAP = metrics.box.map
+        precision = float(metrics.box.p)
+        recall    = float(metrics.box.r)
+        mAP       = float(metrics.box.map)
 
         f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) > 0 else 0.0
 
