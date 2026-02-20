@@ -15,7 +15,7 @@ file=RTDETR_stage1_gridsearch.py
 
 # root=/home/x_gapat/PROJECTS
 root=/home/$USER/PROJECTS
-main_script="${root}/codes/Code_Test_Git/ATS/RT-DETR/${file}"
+main_script="${root}/codes/Code_Test_Git/ATS/RTDETR/${file}"
 
 
 PATHLOG="${root}/logs/ATS/RTDETR"
