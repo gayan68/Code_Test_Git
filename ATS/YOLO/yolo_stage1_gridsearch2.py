@@ -28,7 +28,7 @@ data = args.data_yaml
 save_path = args.save_boxes_root
 model_name = weights.split('/')[-3]
 
-model = YOLO(weights)  # or .pt you want to tune
+model = YOLO(weights, task="detect")  # or .pt you want to tune
 
 conf_grid = [x / 100 for x in range(30, 96, 5)]
 iou_grid  = [x / 100 for x in range(30, 96, 5)]
