@@ -27,7 +27,6 @@ args = get_args_parser()
 weights = args.model_path
 data = args.data_yaml
 save_path = args.save_boxes_root
-model_name = weights.split('/')[-3]
 
 model = YOLO(weights)  # or .pt you want to tune
 
@@ -48,8 +47,9 @@ for iou in ious:
             imgsz=1280,
             conf=conf,
             iou=iou,
-            max_det=2000,
+            max_det=300,
             device="cuda",
+            single_cls=True,            
         )
         
         validator = DetectionValidator(args=yolo_args)
