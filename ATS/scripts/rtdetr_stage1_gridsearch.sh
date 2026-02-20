@@ -15,7 +15,7 @@ file=RTDETR_stage1_gridsearch.py
 
 # root=/home/x_gapat/PROJECTS
 root=/home/$USER/PROJECTS
-main_script="${root}/Test/ATS/RT-DETR/${file}"
+main_script="${root}/codes/Code_Test_Git/ATS/RT-DETR/${file}"
 
 
 PATHLOG="${root}/logs/ATS/RTDETR"
@@ -31,7 +31,7 @@ export PYTHONPATH=/proj/document_analysis/users/x_gapat/codes/Hi-SAM_Doc/
 PRETRAINE_MODEL=RTDETR-READ-1
 CUDA_VISIBLE_DEVICES=4 python "$main_script" \
   --model_path "${PATHLOG}/saved_models/${PRETRAINE_MODEL}/weights/best.pt" \
-  --data_yaml ../read2016.yaml \
+  --data_yaml "${root}/codes/Code_Test_Git/ATS/read2016.yaml" \
   --results_log "${PATHLOG}/RTDETR_Preds/RTDETR_gridsearch.txt" \
   --img_path "${root}/DATASETS/READ_2016/val/Images" \
   --gt_xml "${root}/DATASETS/READ_2016/val/gt_xml" \
@@ -43,7 +43,7 @@ CUDA_VISIBLE_DEVICES=4 python "$main_script" \
 PRETRAINE_MODEL=RTDETR-READ-2
 CUDA_VISIBLE_DEVICES=4 python "$main_script" \
   --model_path "${PATHLOG}/saved_models/${PRETRAINE_MODEL}/weights/best.pt" \
-  --data_yaml ../read2016.yaml \
+  --data_yaml "${root}/codes/Code_Test_Git/ATS/read2016.yaml" \
   --results_log "${PATHLOG}/RTDETR_Preds/RTDETR_gridsearch.txt" \
   --img_path "${root}/DATASETS/READ_2016/val/Images" \
   --gt_xml "${root}/DATASETS/READ_2016/val/gt_xml" \
@@ -55,7 +55,7 @@ CUDA_VISIBLE_DEVICES=4 python "$main_script" \
 PRETRAINE_MODEL=RTDETR-READ-3
 CUDA_VISIBLE_DEVICES=4 python "$main_script" \
   --model_path "${PATHLOG}/saved_models/${PRETRAINE_MODEL}/weights/best.pt" \
-  --data_yaml ../read2016.yaml \
+  --data_yaml "${root}/codes/Code_Test_Git/ATS/read2016.yaml" \
   --results_log "${PATHLOG}/RTDETR_Preds/RTDETR_gridsearch.txt" \
   --img_path "${root}/DATASETS/READ_2016/val/Images" \
   --gt_xml "${root}/DATASETS/READ_2016/val/gt_xml" \
@@ -68,7 +68,7 @@ CUDA_VISIBLE_DEVICES=4 python "$main_script" \
 PRETRAINE_MODEL=RTDETR-IAM-1
 CUDA_VISIBLE_DEVICES=4 python "$main_script" \
   --model_path "${PATHLOG}/saved_models/${PRETRAINE_MODEL}/weights/best.pt" \
-  --data_yaml ../iam.yaml \
+  --data_yaml "${root}/codes/Code_Test_Git/ATS/iam.yaml" \
   --results_log "${PATHLOG}/RTDETR_Preds/RTDETR_gridsearch.txt" \
   --img_path "${root}/DATASETS/IAM/pages_cleaned/val/Images" \
   --gt_xml "${root}/DATASETS/IAM/pages_cleaned/val/gt_xml" \
@@ -80,7 +80,7 @@ CUDA_VISIBLE_DEVICES=4 python "$main_script" \
 PRETRAINE_MODEL=RTDETR-IAM-2
 CUDA_VISIBLE_DEVICES=4 python "$main_script" \
   --model_path "${PATHLOG}/saved_models/${PRETRAINE_MODEL}/weights/best.pt" \
-  --data_yaml ../iam.yaml \
+  --data_yaml "${root}/codes/Code_Test_Git/ATS/iam.yaml" \
   --results_log "${PATHLOG}/RTDETR_Preds/RTDETR_gridsearch.txt" \
   --img_path "${root}/DATASETS/IAM/pages_cleaned/val/Images" \
   --gt_xml "${root}/DATASETS/IAM/pages_cleaned/val/gt_xml" \
@@ -92,7 +92,7 @@ CUDA_VISIBLE_DEVICES=4 python "$main_script" \
 PRETRAINE_MODEL=RTDETR-IAM-3
 CUDA_VISIBLE_DEVICES=4 python "$main_script" \
   --model_path "${PATHLOG}/saved_models/${PRETRAINE_MODEL}/weights/best.pt" \
-  --data_yaml ../iam.yaml \
+  --data_yaml "${root}/codes/Code_Test_Git/ATS/iam.yaml" \
   --results_log "${PATHLOG}/RTDETR_Preds/RTDETR_gridsearch.txt" \
   --img_path "${root}/DATASETS/IAM/pages_cleaned/val/Images" \
   --gt_xml "${root}/DATASETS/IAM/pages_cleaned/val/gt_xml" \
@@ -105,7 +105,7 @@ CUDA_VISIBLE_DEVICES=4 python "$main_script" \
 PRETRAINE_MODEL=RTDETR-NorHand-1
 CUDA_VISIBLE_DEVICES=4 python "$main_script" \
   --model_path "${PATHLOG}/saved_models/${PRETRAINE_MODEL}/weights/best.pt" \
-  --data_yaml ../norhand_v3_mini_v3.yaml \
+  --data_yaml "${root}/codes/Code_Test_Git/ATS/norhand_v3_mini_v3.yaml" \
   --results_log "${PATHLOG}/RTDETR_Preds/RTDETR_gridsearch.txt" \
   --img_path "${root}/DATASETS/NorHandv3_mini_v3/val/Images" \
   --gt_xml "${root}/DATASETS/NorHandv3_mini_v3/val/gt_xml" \
@@ -117,7 +117,7 @@ CUDA_VISIBLE_DEVICES=4 python "$main_script" \
 PRETRAINE_MODEL=RTDETR-NorHand-2
 CUDA_VISIBLE_DEVICES=4 python "$main_script" \
   --model_path "${PATHLOG}/saved_models/${PRETRAINE_MODEL}/weights/best.pt" \
-  --data_yaml ../norhand_v3_mini_v3.yaml \
+  --data_yaml "${root}/codes/Code_Test_Git/ATS/norhand_v3_mini_v3.yaml" \
   --results_log "${PATHLOG}/RTDETR_Preds/RTDETR_gridsearch.txt" \
   --img_path "${root}/DATASETS/NorHandv3_mini_v3/val/Images" \
   --gt_xml "${root}/DATASETS/NorHandv3_mini_v3/val/gt_xml" \
@@ -129,7 +129,7 @@ CUDA_VISIBLE_DEVICES=4 python "$main_script" \
 PRETRAINE_MODEL=RTDETR-NorHand-3
 CUDA_VISIBLE_DEVICES=4 python "$main_script" \
   --model_path "${PATHLOG}/saved_models/${PRETRAINE_MODEL}/weights/best.pt" \
-  --data_yaml ../norhand_v3_mini_v3.yaml \
+  --data_yaml "${root}/codes/Code_Test_Git/ATS/norhand_v3_mini_v3.yaml" \
   --results_log "${PATHLOG}/RTDETR_Preds/RTDETR_gridsearch.txt" \
   --img_path "${root}/DATASETS/NorHandv3_mini_v3/val/Images" \
   --gt_xml "${root}/DATASETS/NorHandv3_mini_v3/val/gt_xml" \
