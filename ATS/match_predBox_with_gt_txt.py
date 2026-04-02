@@ -170,14 +170,14 @@ def match_find_label_then_save(pred_bbs, gt_bbs, labels, page_id, pred_img_lines
 ###########################################
 
 split = "val"
-split_mask = "masked_val"
-model = "H077"
+model = "H091"
+dataset = "IAM"
 
 root = "/home/x_gapat/PROJECTS"
-pred_img_lines = f"{root}/logs/Hi-SAM_Doc/sample_output/{model}/NorHandV3/{split_mask}/images"
-gt_dir = f"{root}/DATASETS/NorHandv3/{split}/PAGE"
-image_save_path = f"{root}/Croped_image_lines2/{model}/NorHandV3/{split}/images"
-label_save_path = f"{root}/Croped_image_lines2/{model}/NorHandV3/{split}/gt_text"
+pred_img_lines = f"{root}/logs/ATS/Hi-SAM/stage3/{model}/{dataset}/{split}/boxes"
+gt_dir = f"{root}/DATASETS/{dataset}/{split}/PAGE"
+image_save_path = f"{root}/Croped_image_lines2/{model}/{dataset}/{split}/images"
+label_save_path = f"{root}/Croped_image_lines2/{model}/{dataset}/{split}/gt_text"
 
 os.makedirs(image_save_path, exist_ok=True)
 os.makedirs(label_save_path, exist_ok=True)
